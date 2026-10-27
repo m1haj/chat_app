@@ -1,0 +1,10 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/skin-bot/.venv311/bin/python",
+  "python.analysis.typeCheckingMode": "strict",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["skin-bot/tests"],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  }
+}

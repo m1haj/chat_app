@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f5f7f4">
+    <meta name="description" content="Private, educational skin symptom guidance with urgent-care safeguards.">
+    <title>skin-bot | Skin health assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="skin-bot home">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          <span>skin<span class="brand-light">-bot</span></span>
+        </a>
+        <div class="topbar-note"><span class="status-dot"></span> Private image handling</div>
+      </header>
+
+      <main class="workspace">
+        <section class="chat-panel" aria-label="Skin health chat">
+          <div class="disclaimer" role="note">
+            <span class="disclaimer-mark" aria-hidden="true">!</span>
+            <p><strong>Educational use only:</strong> <span>Not a clinical diagnosis. In an emergency, seek urgent medical care.</span></p>
+          </div>
+
+          <div class="conversation" id="conversation" aria-live="polite" aria-relevant="additions text">
+            <div class="welcome" id="welcome">
+              <div class="welcome-kicker"><span></span> SKIN HEALTH, WITH CARE</div>
+              <h1>A clearer next step<br>for your skin.</h1>
+              <p>Share a photo and what you’ve noticed. I can offer general information and help you think through when to seek care.</p>
+              <div class="welcome-hint"><span class="hint-icon" aria-hidden="true">↳</span> Try: “This patch has been itchy for three days.”</div>
+            </div>
+          </div>
+
+          <div class="composer-wrap">
+            <div class="image-preview" id="image-preview" hidden>
+              <img id="preview-image" alt="Selected skin image preview">
+              <div class="preview-meta">
+                <span id="preview-name"></span>
+                <span id="preview-status">Ready to attach</span>
+              </div>
+              <button class="remove-image" id="remove-image" type="button" aria-label="Remove selected image" title="Remove image">×</button>
+            </div>
+            <form class="composer" id="chat-form" method="post" action="javascript:void(0);">
+              <div class="upload-group" role="group" aria-label="Photo upload options">
+                <label class="upload-button" for="camera-input" aria-label="Take photo with camera" title="Take photo">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                  </svg>
+                  <span class="sr-only">Camera</span>
+                </label>
+                <input id="camera-input" type="file" accept="image/*" capture="environment">
+
+                <label class="upload-button" for="gallery-input" aria-label="Choose photo from gallery or files" title="Choose from gallery">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                  <span class="sr-only">Gallery</span>
+                </label>
+                <input id="gallery-input" type="file" accept="image/*">
+              </div>
+
+              <textarea id="prompt-input" name="prompt" rows="1" maxlength="2000" placeholder="Describe what you've noticed…" aria-label="Describe your skin concern"></textarea>
+              <button class="send-button" id="send-button" type="submit" aria-label="Send message" title="Send message">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="12" y1="19" x2="12" y2="5"/>
+                  <polyline points="5 12 12 5 19 12"/>
+                </svg>
+              </button>
+            </form>
+            <div class="composer-foot">
+              <span>Auto-resized · Metadata stripped</span>
+              <span>Not medical advice</span>
+            </div>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+          </div>
+        </section>
+
+        <aside class="care-rail" aria-label="Care guidance">
+          <div class="rail-label">A NOTE ON SAFETY</div>
+          <div class="rail-rule"></div>
+          <h2>Some changes<br>need a clinician.</h2>
+          <p>Seek urgent care for rapidly spreading redness with fever, severe pain, trouble breathing, facial swelling, or rapidly darkening skin.</p>
+          <p class="rail-secondary">A changing, bleeding, or non-healing spot should be checked in person, even when a photo looks reassuring.</p>
+          <div class="rail-bottom"><span class="rail-spark" aria-hidden="true">✳</span><span>When in doubt, get checked.</span></div>
+        </aside>
+      </main>
+      <footer class="page-footer"><span>skin-bot</span><span>General information, not a diagnosis.</span></footer>
+    </div>
+  </body>
+</html>

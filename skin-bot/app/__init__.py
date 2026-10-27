@@ -1,0 +1,1 @@
+"""Skin Bot application package."""
